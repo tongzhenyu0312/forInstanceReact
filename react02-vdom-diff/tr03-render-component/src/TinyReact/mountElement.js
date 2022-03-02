@@ -1,10 +1,10 @@
 import mountNativeElement from './mountNativeElement.js';
-import isFunction from './isFunction';
+import isComponent from './isComponent';
 import mountComponent from './mountComponent';
 
 export default function mountElement (vdom, container) {
   // Component vs nativeElement
-  if (isFunction(vdom)) {
+  if (isComponent(vdom)) {
     // 组件的类型是function
     console.log('组件')
     mountComponent(vdom, container);

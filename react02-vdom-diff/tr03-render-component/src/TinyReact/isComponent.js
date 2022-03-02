@@ -1,3 +1,3 @@
-export default function isFunction (vdom) {
+export default function isComponent (vdom) {
   return vdom && typeof (vdom.type) === 'function';
 }
