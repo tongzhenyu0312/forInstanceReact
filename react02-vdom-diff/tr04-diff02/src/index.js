@@ -19,7 +19,7 @@ class Alert extends TinyReact.Component {
     return (
       <div>
         <div>{ this.state.title }</div>
-        <button onClick={this.onClick.bind(this)}>按钮</button>
+        <button onClick={this.onClick.bind(this)}>按钮</button>    
         { this.props.name }
         { this.props.age }
       </div>
@@ -27,10 +27,22 @@ class Alert extends TinyReact.Component {
   }
 }
 
-// 生成虚拟dom
-const AlertVDom = <Alert name='张三' age="20"></Alert>;
+TinyReact.render(<Alert name='张三' age={ 20 } />, document.getElementById('root'));
 
-// 渲染
-TinyReact.render(AlertVDom, document.getElementById('root'));
+class Header extends TinyReact.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <div>Header</div>
+  }
+}
+
+setTimeout(() => {
+  // 渲染原组件，但组件的props发生了变化
+  TinyReact.render(<Alert name='李四' age={ 50 } />, document.getElementById('root'));
+  // 渲染新组件
+  // TinyReact.render(<Header></Header>, document.getElementById('root'));
+}, 1000)
 
 

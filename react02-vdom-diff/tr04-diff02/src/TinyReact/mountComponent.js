@@ -7,7 +7,7 @@ import mountNativeElement from './mountNativeElement';
  * @param {*} vdom 组件虚拟dom
  * @param {*} container dom容器
  */
-export default function mountComponent (vdom, container) {
+export default function mountComponent (vdom, container, oldDOM) {
   /**
    * 组件虚拟dom 也可分为 函数组件虚拟dom 和 类组件虚拟dom
    * 函数组件虚拟dom真实渲染的是 函数返回的结果
@@ -22,9 +22,9 @@ export default function mountComponent (vdom, container) {
 
   // 要被渲染的虚拟dom进一步
   if (isComponent(renderedVDOM)) {
-    mountComponent(renderedVDOM, container);
+    mountComponent(renderedVDOM, container, oldDOM);
   } else {
-    mountNativeElement(renderedVDOM, container);
+    mountNativeElement(renderedVDOM, container, oldDOM);
   }
 }
 

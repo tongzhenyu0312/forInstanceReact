@@ -5,7 +5,7 @@
  * @param {*} oldVDom 原来的虚拟dom
  */
 export default function updateNodeElement (newElement, vdom, oldVDom) {
-  const newProps = vdom.props;
+  const newProps = vdom.props || {};
   const oldProps = (oldVDom && oldVDom.props) || {};
 
   Object.keys(newProps).forEach((propName) => {
